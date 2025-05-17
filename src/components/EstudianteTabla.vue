@@ -1,41 +1,72 @@
 <template>
   <div class="container">
     <label for="id_nombre">Nombre: </label>
-    <input v-model="nuevoNombre" id="id_nombre" type="text" />
 
+    <input v-model="nuevoNombre" id="id_nombre" type="text" />
+ 
     <label for="id_apellido">Apellido: </label>
     <input v-model="nuevoApellido" id="id_apellido" type="text" />
-
+ 
     <label for="id_edad">Edad: </label>
     <input v-model="nuevaEdad" id="id_edad" type="number" />
-
+ 
     <label for="id_carrera">Carrera: </label>
-    <input v-model="nuevaCarrera" id="id_carrera" type="text" />
-
+    <input v-model="nuevaCarrera" id="id_carrera" type="checkbox" />
+ 
     <label for="id_ciudad">Ciudad: </label>
-    <input v-model="nuevaCiudad" id="id_ciudad" type="text" />
-
-    <button v-on:click="agregarEstudiante">Agregar</button>
-
+    <input v-model="nuevaCiudad" id="id_ciudad" type="number" />
+ 
+    <button v-on:click="agregarEstudiante()">Agregar</button>
+ 
     <ul>
+
       <li
-        v-for="{ nombre, apellido, edad, carrera, ciudad } in lista"
-        :key="nombre + apellido"
+        v-for="{
+          nombre,
+          apellido,
+          edad,
+          ciudad,
+          carrera,
+        } in lista"
+        :key="nombre"
       >
         Nombre: {{ nombre }} - Apellido: {{ apellido }} - Edad: {{ edad }} -
-        Carrera: {{ carrera }} - Ciudad: {{ ciudad }}
+        Ciudad: {{ ciudad}} - Carrera:
+        {{ carrera }}
       </li>
     </ul>
+ 
+    <table>
+      <thead>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Ciudad</th>
+        <th>Carrera</th>
+        <th>Acción</th>
+      </thead>
+      <tbody>
+        <tr
+          v-for="{
+            nombre,
+            apellido,
+            edad,
+            ciudad,
+            carrera,
+          } in lista"
+          :key="nombre"
+        >
+          <td>{{ nombre }}</td>
+          <td>{{ apellido }}</td>
+          <td>{{ edad }}</td>
+          <td>{{ ciudad }}</td>
+          <td>{{ carrera }}</td>
+          <td><button>Ver</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
-
-<!--- 
- - v-for: iteracion 
- - comunicar datos de entrada con una propiedad ractiva
- - MVC(patron de diseño) Vista: parte visual, 
-   Modelo: vista controlador, Controlador: controla todo lo que pasa en la vista
-
- -->
 
 <script>
 export default {
@@ -109,32 +140,37 @@ export default {
         ciudad: this.nuevaCiudad,
       };
       this.lista.push(nuevo);
-      this.mostrar=true;
-      this.nombre=null; /*Crear un metodo*/
-      
-      setTimeout(()=>{this.mostrar=false;}, 3000);
+    },
+    editarEstudiante(index) {
+      const estudiante = this.lista[index];
+      this.nuevoNombre = estudiante.nombre;
+      this.nuevoApellido = estudiante.apellido;
+      this.nuevaEdad = estudiante.edad;
+      this.nuevaCarrera = estudiante.carrera;
+      this.nuevaCiudad = estudiante.ciudad;
+
+      this.lista.splice(index, 1);
     },
   },
 };
 </script>
 
 <style scoped>
-
-.container{
+.container {
   background: #ffffff;
   border: 1px solid green;
   border-radius: 12px;
   max-width: 700px;
   margin: 50px auto;
   padding: 30px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 label {
   display: block;
   color: aqua;
   text-align: left;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 input {
@@ -147,9 +183,9 @@ input {
   padding: 5px 5px;
 }
 
-button{
+button {
   border-radius: 8px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 15px;
   cursor: pointer;
   padding: 12px 20px;
@@ -157,20 +193,62 @@ button{
   width: 100px;
 }
 
-button:active{
-  background: rgb(182, 27, 60);
+button:active {
+  background: rgba(27, 100, 78, 0.651);
 }
- 
+
 ul {
   list-style-type: none;
   margin-top: 40px;
 }
 
 li {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ddd;
-  border-radius: 8px; 
-  background-color: #cbe6db; 
+  border-radius: 8px;
+  background-color: #cbe6db;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  background-color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #f4f6f8;
+}
+
+thead th {
+  text-align: left;
+  padding: 15px;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #e3e6ea;
+}
+
+tbody tr {
+  transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+tbody tr:hover {
+  background-color: #eef3f9;
+}
+
+tbody td {
+  padding: 15px;
+  border-bottom: 1px solid #e3e6ea;
+  color: #444;
 }
 </style>

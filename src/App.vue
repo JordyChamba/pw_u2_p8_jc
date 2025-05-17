@@ -1,22 +1,25 @@
 <template>
   <!--<Contador/>-->
-  <EstudianteView/>
+  <!-- <EstudianteView/> -->
+  <EstudianteTablaView/>
 
 </template>
 
 <script>
 import Contador from '@/views/ContadorView.vue';  
 import EstudianteView from "@/views/EstudianteView.vue"
+import EstudianteTablaView from '@/views/EstudianteTablaView.vue';
 export default {
   name: "App",
   components: {
     Contador,
     EstudianteView,
+    EstudianteTablaView,
   },
 };
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
