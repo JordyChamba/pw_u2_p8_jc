@@ -109,32 +109,33 @@ export default {
         ciudad: this.nuevaCiudad,
       };
       this.lista.push(nuevo);
-      this.mostrar=true;
-      this.nombre=null; /*Crear un metodo*/
-      
-      setTimeout(()=>{this.mostrar=false;}, 3000);
+      this.mostrar = true;
+      this.nombre = null; /*Crear un metodo*/
+
+      setTimeout(() => {
+        this.mostrar = false;
+      }, 3000);
     },
   },
 };
 </script>
 
 <style scoped>
-
-.container{
+.container {
   background: #ffffff;
   border: 1px solid green;
   border-radius: 12px;
   max-width: 700px;
   margin: 50px auto;
   padding: 30px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 label {
   display: block;
-  color: aqua;
+  color: rgb(61, 23, 230);
   text-align: left;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 input {
@@ -147,9 +148,9 @@ input {
   padding: 5px 5px;
 }
 
-button{
+button {
   border-radius: 8px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 15px;
   cursor: pointer;
   padding: 12px 20px;
@@ -157,20 +158,20 @@ button{
   width: 100px;
 }
 
-button:active{
+button:active {
   background: rgb(182, 27, 60);
 }
- 
+
 ul {
   list-style-type: none;
   margin-top: 40px;
 }
 
 li {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ddd;
-  border-radius: 8px; 
-  background-color: #cbe6db; 
+  border-radius: 8px;
+  background-color: #cbe6db;
 }
 </style>

@@ -1,25 +1,25 @@
 <template>
-  <!--<Contador/>-->
-  <!-- <EstudianteView/> -->
-  <EstudianteTablaView/>
-
+  <!-- <ContadorView></ContadorView> -->
+  <!-- <EstudianteTablaViewV /> -->
+  <BecarioView />
 </template>
 
 <script>
-import Contador from '@/views/ContadorView.vue';  
-import EstudianteView from "@/views/EstudianteView.vue"
-import EstudianteTablaView from '@/views/EstudianteTablaView.vue';
+//import EstudianteTablaViewV from "@/views/EstudianteTablaViewV.vue";
+//import ContadorView from "@/views/ContadorView.vue";
+import BecarioView from "@/views/BecarioView.vue";
+
 export default {
   name: "App",
   components: {
-    Contador,
-    EstudianteView,
-    EstudianteTablaView,
+    //ContadorView,
+    //EstudianteTablaViewV,
+    BecarioView,
   },
 };
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
