@@ -54,7 +54,7 @@ export default {
       nuevoApellido: "",
       nuevaCedula: "",
       nuevaProvincia: "",
-      nuevoInstituto: "", // corregido
+      nuevoInstituto: "", 
       lista: [
         {
           nombre: "Jordy",
@@ -80,7 +80,7 @@ export default {
         apellido: this.nuevoApellido,
         cedula: this.nuevaCedula,
         provincia: this.nuevaProvincia,
-        instituto: this.nuevoInstituto, // corregido
+        instituto: this.nuevoInstituto, 
       };
 
       this.lista.push(beca);
