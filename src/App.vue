@@ -2,14 +2,16 @@
   <!-- <ContadorView></ContadorView> -->
   <!-- <EstudianteTablaViewV /> -->
   <!--  <BecarioView /> -->
-    <PreguntaView/>
+  <!-- <PreguntaView/>-->
+  <ChisteView />
 </template>
 
 <script>
 //import EstudianteTablaViewV from "@/views/EstudianteTablaViewV.vue";
 //import ContadorView from "@/views/ContadorView.vue";
 //import BecarioView from "@/views/BecarioView.vue";
-import PreguntaView from "@/views/PreguntaView.vue"
+//import PreguntaView from "@/views/PreguntaView.vue"
+import ChisteView from "@/views/ChisteView.vue";
 
 export default {
   name: "App",
@@ -17,7 +19,8 @@ export default {
     //ContadorView,
     //EstudianteTablaViewV,
     //BecarioView,
-    PreguntaView
+    //PreguntaView,
+    ChisteView,
   },
 };
 </script>
